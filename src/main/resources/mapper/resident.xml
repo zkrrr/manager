@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.community.manager.dao.ResidentDao">
+    <resultMap id="BaseResultMap" type="com.community.manager.domain.Resident">
+        <result column="id" property="id" javaType="String"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex" />
+        <result column="age" property="age"/>
+        <result column="telephoneNumber" property="telephoneNumber" />
+        <result column="bankCardNumber" property="bankCardNumber"/>
+        <result column="balance" property="balance" />
+        <result column="password" property="password"/>
+        <result column="communityName" property="communityName" />
+        <result column="buildingNumber" property="buildingNumber"/>
+        <result column="unitName" property="unitName" />
+        <result column="floorNumber" property="floorNumber"/>
+        <result column="roomNumber" property="roomNumber" />
+        <result column="hobby" property="hobby"/>
+        <result column="selfIntroduction" property="selfIntroduction" />
+    </resultMap>
+
+    <parameterMap id="Resident" type="com.community.manager.domain.Resident"/>
+
+    <sql id="Base_Column_List">
+		id, name, sex, age, telephoneNumber, bankCardNumber, balance, password, communityName, buildingNumber, unitName,floorNumber,roomNumber,hobby,selfIntroduction
+	</sql>
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from resident
+        where id = #{id}
+    </select>
+
+    <select id="findByTelephoneNumber" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from resident
+        where telephoneNumber = #{telephoneNumber}
+    </select>
+
+    <select id="findAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from resident
+    </select>
+
+    <insert id="insertResident" parameterType="com.community.manager.domain.Resident">
+        insert into resident(<include refid="Base_Column_List" />) values (#{id},#{name},#{sex},#{age},#{telephoneNumber},#{bankCardNumber},#{balance},#{password},#{communityName},#{buildingNumber},#{unitName},#{floorNumber},#{roomNumber},#{hobby},#{selfIntroduction})
+    </insert>
+
+    <delete id="deleteResident">
+        delete from resident where id = #{id}
+    </delete>
+
+    <update id="updateResident" parameterType="com.community.manager.domain.Resident">
+        update resident set name = #{name}, sex = #{sex}, age = #{age}, telephoneNumber = #{telephoneNumber}, bankCardNumber = #{bankCardNumber}, balance = #{balance},password = #{password} , communityName = #{communityName}, buildingNumber = #{buildingNumber}, unitName = #{unitName},floorNumber = #{floorNumber},roomNumber = #{roomNumber}, hobby = #{hobby}, selfIntroduction = #{selfIntroduction} where id = #{id}
+    </update>
+</mapper>

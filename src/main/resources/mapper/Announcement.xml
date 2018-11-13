@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.community.manager.dao.AnnouncementDao">
+    <resultMap id="BaseResultMap" type="com.community.manager.domain.Announcement">
+        <result column="id" property="id" javaType="int"/>
+        <result column="title" property="title"/>
+        <result column="text" property="text" />
+    </resultMap>
+
+    <parameterMap id="Announcement" type="com.community.manager.domain.Announcement"/>
+
+    <sql id="Base_Column_List">
+		id, title, text
+    </sql>
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from announcement
+        where id = #{id}
+    </select>
+
+</mapper>

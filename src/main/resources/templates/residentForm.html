@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>居民管理</title>
+</head>
+
+<body>
+<div class="contentDiv">
+
+    <legend>
+        <strong>居民管理</strong>
+    </legend>
+
+    <form th:action="@{/manager/{action}(action=${action})}" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <label for="resident_id" class="col-sm-2 control-label">编号:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_id" name="name" th:value="${resident.id}"
+                       th:field="*{resident.id}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_name" class="col-sm-2 control-label">姓名:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_name" name="name" th:value="${resident.name}"
+                       th:field="*{resident.name}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_sex" class="col-sm-2 control-label">性别:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_sex" name="sex" th:value="${resident.sex}"
+                       th:field="*{resident.sex}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_age" class="col-sm-2 control-label">年龄:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_age" name="age" th:value="${resident.age}"
+                       th:field="*{resident.age}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_telephoneNumber" class="col-sm-2 control-label">电话号码:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_telephoneNumber" name="telephoneNumber" th:value="${resident.telephoneNumber}"
+                       th:field="*{resident.telephoneNumber}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_bankCardNumber" class="col-sm-2 control-label">银行卡号:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_bankCardNumber" name="bankCardNumber" th:value="${resident.bankCardNumber}"
+                       th:field="*{resident.bankCardNumber}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_balance" class="col-sm-2 control-label">余额:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_balance" name="balance" th:value="${resident.balance}"
+                       th:field="*{resident.balance}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_password" class="col-sm-2 control-label">密码:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_password" name="password" th:value="${resident.password}"
+                       th:field="*{resident.password}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_communityName" class="col-sm-2 control-label">社区:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_communityName" name="communityName" th:value="${resident.communityName}"
+                       th:field="*{resident.communityName}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_buildingNumber" class="col-sm-2 control-label">建筑名:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_buildingNumber" name="writer" th:value="${resident.buildingNumber}"
+                       th:field="*{resident.buildingNumber}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_unitName" class="col-sm-2 control-label">单元名:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_unitName" name="unitName" th:value="${resident.unitName}"
+                       th:field="*{resident.unitName}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_floorNumber" class="col-sm-2 control-label">楼层号:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_floorNumber" name="floorNumber" th:value="${resident.floorNumber}"
+                       th:field="*{resident.floorNumber}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_roomNumber" class="col-sm-2 control-label">房间号:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="resident_roomNumber" name="roomNumber" th:value="${resident.roomNumber}"
+                       th:field="*{resident.roomNumber}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="resident_hobby" class="col-sm-2 control-label">爱好:</label>
+            <div class="col-xs-4">
+                <textarea class="form-control" id="resident_hobby" rows="3" name="hobby"
+                          th:value="${resident.hobby}" th:field="*{resident.hobby}"></textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="resident_selfIntroduction" class="col-sm-2 control-label">个人简介:</label>
+            <div class="col-xs-4">
+                <textarea class="form-control" id="resident_selfIntroduction" rows="3" name="introduction"
+                          th:value="${resident.selfIntroduction}" th:field="*{resident.selfIntroduction}"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="提交"/>&nbsp;&nbsp;
+                <input class="btn" type="button" value="返回" onclick="history.back()"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
