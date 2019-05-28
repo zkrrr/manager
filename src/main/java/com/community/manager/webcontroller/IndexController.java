@@ -26,7 +26,7 @@ public class IndexController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "telephoneNumber", required = true) String telephoneNumber,@RequestParam(value = "password", required = true)String password) {
         Resident resident =  residentService.findByTelephoneNumber(telephoneNumber);
-        if (resident!=null) {
+        if (resident!=null) {//sadasdasdasd
             return redirects;
         }
         else
